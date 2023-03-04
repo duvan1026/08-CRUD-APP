@@ -19,7 +19,7 @@ const fetchQuote = async() => {
 export const BreakingbadApp = async( element ) => { //Todo se colocala la primera en mayuscula porque es el componente principal de mi aplicación.
 
     document.querySelector('#app-title').innerHTML = 'Breaking App';
-    element.innerHTML = 'Loading...'
+    element.innerHTML = 'Loading...';
     
     // await fetchQuote();
 
@@ -38,9 +38,20 @@ export const BreakingbadApp = async( element ) => { //Todo se colocala la primer
 
     }
 
+    // Añadir listener
+    nextQuoteButtton.addEventListener( 'click', async() => {
+
+        element.innerHTML = 'Loading...';
+        const quote = await fetchQuote();
+        renderQuote( quote );
+
+    });
+
     fetchQuote()
-        // .then( (data) =>  renderQuote(data) );// metodo largo
         .then( renderQuote );
+
+
+
 
 
 
