@@ -1,5 +1,6 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
+import { BreakingbadApp } from './src/breakingbad/breakingbad-app';
 
 
 document.querySelector('#app').innerHTML = `
@@ -12,7 +13,11 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1 id="app-title">Hello Vite!</h1>
     <div class="card">
-    
+
     </div>
   </div>
-`
+`;
+
+const element = document.querySelector('.card');
+
+BreakingbadApp( element );
