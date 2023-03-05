@@ -2,7 +2,7 @@
 
 const state = {
     currentPage: 0,
-    user: [],
+    users: [],
 }
 
 
@@ -25,7 +25,19 @@ const onUserChanged = () => {
 
 }
 
+
 const reloadPage = async() => {
     throw new Error ('No implementado');
+
+}
+
+export default{
+    reloadPage,
+    onUserChanged,
+    loadPreviosPage,
+    loadNextPage,
+    
+    getUser: () => [...state.users], // extrae los usuarios}
+    getCurrentPage: () => state.currentPage,
 
 }
