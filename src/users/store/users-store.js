@@ -9,7 +9,12 @@ const state = {
 
 const loadNextPage = async() => {
 
-    await loadUsersByPage( state.currentPage + 1 );
+   const users =  await loadUsersByPage( state.currentPage + 1 ); //Todo: me regresa los usuarios
+
+   if( users.length == 0 ) return; // Verifica si tiene una pagina siguiente
+
+   state.currentPage += 1;
+   state.users = users;
 }
 
 
@@ -39,7 +44,7 @@ export default{
     loadPreviosPage,
     loadNextPage,
     
-    getUser: () => [...state.users], // extrae los usuarios}
+    getUsers: () => [...state.users], // extrae los usuarios}
     getCurrentPage: () => state.currentPage,
 
 }
