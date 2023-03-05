@@ -5,6 +5,7 @@
 
 * Archivo el cual contienen 50 usuarios para ser cargados en la base de datos de la App [link](https://gist.github.com/Klerith/7db7e20bda7161d827b6b70cc1e23d02)
 
+## Pasos para instalar servidor y ejecutarlo.
 
-
-*  Instalar el servidor **json-server** como dependencia de desarrollo  ``npm i json-server --save-dev`` 
+*  Instalar el servidor **json-server** como dependencia de desarrollo  ``npm i json-server --save-dev`` .
+*  El siguiente comando ``npm run dev`` nos permite correr nuestro servidor back.
