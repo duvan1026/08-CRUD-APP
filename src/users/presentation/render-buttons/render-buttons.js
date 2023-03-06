@@ -1,4 +1,5 @@
 import usersStore from "../../store/users-store";
+import  "../render-buttons/render-buttons.css";
 /**
  * 
  * @param {HTMLDivElement} element 
