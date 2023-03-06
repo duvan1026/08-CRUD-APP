@@ -44,7 +44,16 @@ export default{
     loadPreviosPage,
     loadNextPage,
     
+    /**
+     * 
+     * @returns {User[]}
+     */
     getUsers: () => [...state.users], // extrae los usuarios}
+
+    /**
+     * 
+     * @returns {Number}
+     */
     getCurrentPage: () => state.currentPage,
 
 }
