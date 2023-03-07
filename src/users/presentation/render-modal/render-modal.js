@@ -44,7 +44,28 @@ export const renderModal = ( element ) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Evita que el form se comporte normalmente( propagacion del mismo ) y envie los datos al backend
 
-        console.log('Formulario enviado');
+        const formData = new FormData( form ); //Todo: objeto extrae la data del formulario
+        const userLike = {};
+
+        for (const [key, value] of formData) {
+
+            if( key === 'balance' ){
+                userLike[key] = +value; // Convierte el string a value
+                continue;
+            }
+
+            if( key === 'isActive' ){// conviernte el valor isActive en boolean
+                userLike[key] =  (value === 'on') ? true : false;
+                continue;
+            }
+
+
+            userLike[key] = value;
+        }
+
+
+        console.log(userLike);
+
     });
 
 
