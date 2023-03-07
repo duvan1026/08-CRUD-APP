@@ -1,4 +1,5 @@
 import modalHtml from "./render-modal.html?raw";
+import "./render-modal.css";
 
 
 let modal;
