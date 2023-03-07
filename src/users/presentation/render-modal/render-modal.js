@@ -31,7 +31,17 @@ export const renderModal = ( element ) => {
     modal.innerHTML = modalHtml;
     modal.className = 'modal-container  hide-modal'; // Todo: clases para ocultar el modal
 
+    modal.addEventListener( 'click', (event) => {
+        
+        if (event.target.className !== 'modal-container') return; // todo: pregunta si el usuario a dado click dentro del modal, si no lo es, no retorna y continua.
+
+        hideModal();// Todo: esconde el modal
+    });
+
+
+
+
     element.append( modal );
 
-
 }
+
