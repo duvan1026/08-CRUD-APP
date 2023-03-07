@@ -5,6 +5,20 @@ import "./render-modal.css";
 let modal;
 
 
+//Todo: cargar usuario por id
+export const showModal = ( ) => {
+
+    modal?.classList.remove('hide-modal'); //Todo: pregunta si existe el modal, si existe elimina la clase 
+
+}
+
+
+export const hideModal = () => {
+
+    modal?.classList.add('hide-modal');
+    // Todo: Reset del formulario
+}
+
 /**
  * 
  * @param {HTMLDivElement} element 
