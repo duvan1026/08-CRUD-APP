@@ -16,7 +16,7 @@ export const showModal = ( ) => {
 export const hideModal = () => {
 
     modal?.classList.add('hide-modal');
-    // Todo: Reset del formulario
+    form?.reset(); // resetea el formulario
 }
 
 /**
@@ -64,7 +64,11 @@ export const renderModal = ( element ) => {
         }
 
 
-        console.log(userLike);
+        // console.log(userLike);
+        //Todo: guardar usuario
+
+
+        hideModal();
 
     });
 
