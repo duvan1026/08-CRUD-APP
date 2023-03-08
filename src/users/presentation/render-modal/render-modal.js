@@ -22,8 +22,9 @@ export const hideModal = () => {
 /**
  * 
  * @param {HTMLDivElement} element 
+ * @param {(userLike)=>Promise<void>} callback
  */
-export const renderModal = ( element ) => {
+export const renderModal = ( element, callback ) => {
 
     if ( modal ) return;
 
@@ -41,7 +42,7 @@ export const renderModal = ( element ) => {
     });
 
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async(event) => {
         event.preventDefault(); // Evita que el form se comporte normalmente( propagacion del mismo ) y envie los datos al backend
 
         const formData = new FormData( form ); //Todo: objeto extrae la data del formulario
@@ -65,7 +66,7 @@ export const renderModal = ( element ) => {
 
 
         // console.log(userLike);
-        //Todo: guardar usuario
+        await callback( userLike );
 
 
         hideModal();
