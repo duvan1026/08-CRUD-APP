@@ -6,7 +6,7 @@ import "./render-modal.css";
 
 
 let modal, form;
-let loadUser;
+let loadUser = {};
 
 /**
  * 
@@ -14,11 +14,13 @@ let loadUser;
  */
 export const showModal = async( id ) => {
 
+    loadUser = {};
+
     modal?.classList.remove('hide-modal'); // pregunta si existe el modal, si existe elimina la clase 
 
     if( !id )return;
-
     const user = await getUserById( id );
+    setFormValues( user );
 
 }
 
@@ -35,6 +37,13 @@ export const hideModal = () => {
  * @param {User} user 
  */
 const setFormValues = ( user ) => {
+    
+    form.querySelector('[name="firstName"]').value = user.firstName; // setea el valor en la tabla del formulario
+    form.querySelector('[name="lastName"]').value = user.lastName; // setea el valor en la tabla del formulario
+    form.querySelector('[name="balance"]').value = user.balance; // setea el valor en la tabla del formulario
+    form.querySelector('[name="isActive"]').checked = user.isActive; // setea el valor en la tabla del formulario
+    loadUser = user;
+
 
 }
 
@@ -65,7 +74,7 @@ export const renderModal = ( element, callback ) => {
         event.preventDefault(); // Evita que el form se comporte normalmente( propagacion del mismo ) y envie los datos al backend
 
         const formData = new FormData( form ); //Todo: objeto extrae la data del formulario
-        const userLike = {};
+        const userLike = { ...loadUser };
 
         for (const [key, value] of formData) {
 
