@@ -10,7 +10,7 @@ export const saveUser = async( userLike ) => {
 
     const user = new User( userLike );
 
-    if ( !user.firstName || !user.lastName ) 
+    if ( !user.firstName || !user.lastName ) // Validamos que contenga algun dato el modal para asi proceder a guardar
         throw 'First & last name are required';
 
 
