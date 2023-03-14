@@ -44,7 +44,7 @@ const setFormValues = ( user ) => {
     form.querySelector('[name="isActive"]').checked = user.isActive; // setea el valor en la tabla del formulario
     loadUser = user;
 
-    console.log(form.querySelector('[name="balance"]').value);
+    console.log("value isActive : " + form.querySelector('[name="isActive"]').checked);
 }
 
 /**
@@ -75,7 +75,6 @@ export const renderModal = ( element, callback ) => {
 
         const formData = new FormData( form ); //Todo: objeto extrae la data del formulario
         const userLike = { ...loadUser };
-        console.log(userLike);
 
         for (const [key, value] of formData) {
 

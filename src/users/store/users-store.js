@@ -62,7 +62,10 @@ const reloadPage = async() => {
 
     const users =  await loadUsersByPage( state.currentPage ); //Todo: me regresa los usuarios
 
-    if( users.length == 0 ) return; // Verifica si tiene una pagina siguiente
+    if( users.length == 0 ) {
+        await loadPreviosPage();
+        return;
+    }; // Verifica si tiene una pagina siguiente
     state.users = users;
 
 }
