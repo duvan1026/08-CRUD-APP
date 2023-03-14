@@ -58,7 +58,6 @@ export const renderTable = ( element ) => {
 
 
         //TODO: Listeners a la table
-
         table.addEventListener('click', tableSelectListener );
     }
 
