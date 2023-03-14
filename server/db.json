@@ -11,7 +11,7 @@
     },
     {
       "id": 7,
-      "isActive": true,
+      "isActive": false,
       "balance": 1985.59,
       "avatar": "http://placehold.it/32x32",
       "first_name": "Harris",
@@ -56,7 +56,7 @@
     },
     {
       "id": 12,
-      "isActive": false,
+      "isActive": true,
       "balance": 1905.22,
       "avatar": "http://placehold.it/32x32",
       "first_name": "Reeves",

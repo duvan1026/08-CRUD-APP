@@ -43,8 +43,6 @@ const setFormValues = ( user ) => {
     form.querySelector('[name="balance"]').value = user.balance; // setea el valor en la tabla del formulario
     form.querySelector('[name="isActive"]').checked = user.isActive; // setea el valor en la tabla del formulario
     loadUser = user;
-
-    console.log("value isActive : " + form.querySelector('[name="isActive"]').checked);
 }
 
 /**
@@ -76,7 +74,12 @@ export const renderModal = ( element, callback ) => {
         const formData = new FormData( form ); //Todo: objeto extrae la data del formulario
         const userLike = { ...loadUser };
 
+        let verifystate = false;
+
+
         for (const [key, value] of formData) {
+
+            console.log(key, value);
 
             if( key === 'balance' ){
                 userLike[key] = +value; // Convierte el string a value
@@ -85,26 +88,24 @@ export const renderModal = ( element, callback ) => {
 
             if( key === 'isActive' ){// conviernte el valor isActive en boolean
                 userLike[key] =  (value === 'on') ? true : false;
+                verifystate = true;
                 continue;
             }
 
             userLike[key] = value;
+
         }
 
-        //console.log(userLike[isActive]);
-        console.log("Dato formulario:  " + userLike);
+        if( verifystate == false ){
+            userLike['isActive'] = false;
+        }
 
-
-        // console.log(userLike);
         await callback( userLike );
 
 
         hideModal();
 
     });
-
-
-
 
     element.append( modal );
 
