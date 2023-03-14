@@ -58,10 +58,12 @@ const onUserChanged = async(updateUser) => {
  * 
  * @param {User} updateUser 
  */
-const reloadPage = () => {
+const reloadPage = async() => {
 
+    const users =  await loadUsersByPage( state.currentPage ); //Todo: me regresa los usuarios
 
-    throw new Error ('No implementado');
+    if( users.length == 0 ) return; // Verifica si tiene una pagina siguiente
+    state.users = users;
 
 }
 

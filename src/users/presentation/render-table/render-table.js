@@ -1,5 +1,6 @@
 import usersStore from "../../store/users-store";
 import { showModal } from "../render-modal/render-modal";
+import { deleteUserById } from "../../use-cases/delete-user-by-id";
 import "./render-table.css";
 
 let table;
@@ -42,6 +43,30 @@ const tableSelectListener = (event) => {
     showModal( id );
 }
 
+/**
+ * 
+ * @param {MouseEvent} event 
+ */
+const tableDelectListener = async(event) => {
+    const element = event.target.closest('.delete-user');// Otra forma de poder tener solo el elemento especifico que deseamos los demaso son (NUll) en HTML
+    if ( !element ) return;
+
+
+    const id = element.getAttribute('data-id');
+    try{
+
+        await deleteUserById( id );  
+        await usersStore.reloadPage(); 
+        document.querySelector('#current-page').innerText = usersStore.getCurrentPage();
+        renderTable();
+
+    }catch (error){
+        console.log(error);
+        alert('No se pudo eliminar');
+    }
+
+}
+
 
 /**
  * renderiza la tabla HTML 
@@ -59,6 +84,8 @@ export const renderTable = ( element ) => {
 
         //TODO: Listeners a la table
         table.addEventListener('click', tableSelectListener );
+        table.addEventListener('click', tableDelectListener );
+
     }
 
     let tableHTML = '';

@@ -89,12 +89,11 @@ export const renderModal = ( element, callback ) => {
                 continue;
             }
 
-
-
             userLike[key] = value;
-            console.log(userLike[isActive]);
-            console.log(userLike);
         }
+
+        //console.log(userLike[isActive]);
+        console.log("Dato formulario:  " + userLike);
 
 
         // console.log(userLike);
